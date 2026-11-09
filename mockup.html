@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing — Barber & Brew</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#fffbeb', 100: '#fef3c7', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
+                        ink: { 800: '#292524', 900: '#1c1917' }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['"Playfair Display"', 'serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans bg-white">
+
+    <!-- NAVBAR -->
+    <nav class="bg-ink-900 text-white px-8 py-5 flex items-center justify-between sticky top-0 z-50">
+        <span class="font-display text-2xl font-black">Barber<span class="text-brand-400">&amp;Brew</span></span>
+        <div class="flex items-center gap-8 text-sm font-medium">
+            <a class="text-brand-400">Beranda</a>
+            <a class="text-stone-300 hover:text-white">Tentang</a>
+            <a class="text-stone-300 hover:text-white">Layanan</a>
+            <a class="text-stone-300 hover:text-white">Menu Café</a>
+            <a class="text-stone-300 hover:text-white">Kontak</a>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="login.html"
+                class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-white/10">Masuk</a>
+            <a href="login.html"
+                class="px-5 py-2 text-sm bg-brand-500 text-black font-semibold rounded-full">Daftar</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative bg-ink-900 text-white px-16 py-24 overflow-hidden">
+        <div class="absolute inset-0"
+            style="background:radial-gradient(circle at 70% 30%, rgba(245,158,11,.30), transparent 60%)"></div>
+        <div class="relative grid grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            <div>
+                <span
+                    class="inline-block bg-brand-500/20 text-brand-400 text-xs font-semibold px-3 py-1 rounded-full mb-5 tracking-wider">✦
+                    PREMIUM BARBERSHOP</span>
+                <h1 class="font-display text-6xl font-black leading-tight mb-6">
+                    Potong Rambut<br><span class="text-brand-400">Sambil Ngopi</span>
+                </h1>
+                <p class="text-stone-300 text-lg mb-8 max-w-md leading-relaxed">
+                    Reservasi barber favoritmu, nikmati kopi premium, dan kelola semuanya dalam satu platform.
+                </p>
+                <div class="flex gap-4">
+                    <a href="04-booking.html"
+                        class="bg-brand-500 text-black px-8 py-3.5 font-semibold rounded-full text-sm hover:bg-brand-400 transition">Reservasi
+                        Sekarang</a>
+                    <a href="03-menu.html"
+                        class="border border-white/30 px-8 py-3.5 font-semibold rounded-full text-sm hover:bg-white/10 transition">Lihat
+                        Menu</a>
+                </div>
+            </div>
+            <div
+                class="aspect-square rounded-3xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-9xl shadow-2xl">
+                💈</div>
+        </div>
+    </section>
+
+    <!-- STATISTIK -->
+    <section class="grid grid-cols-4 divide-x divide-stone-200 py-10 bg-white">
+        <div class="text-center">
+            <p class="font-display text-4xl font-black text-brand-600">15+</p>
+            <p class="text-stone-500 text-sm mt-1">Barber Profesional</p>
+        </div>
+        <div class="text-center">
+            <p class="font-display text-4xl font-black text-brand-600">2.5K+</p>
+            <p class="text-stone-500 text-sm mt-1">Pelanggan Puas</p>
+        </div>
+        <div class="text-center">
+            <p class="font-display text-4xl font-black text-brand-600">30+</p>
+            <p class="text-stone-500 text-sm mt-1">Menu Café</p>
+        </div>
+        <div class="text-center">
+            <p class="font-display text-4xl font-black text-brand-600">4.9★</p>
+            <p class="text-stone-500 text-sm mt-1">Rating Rata-rata</p>
+        </div>
+    </section>
+
+    <!-- LAYANAN -->
+    <section class="bg-stone-50 px-16 py-20">
+        <div class="text-center mb-12">
+            <p class="text-brand-600 font-semibold text-sm tracking-widest mb-2">LAYANAN KAMI</p>
+            <h2 class="font-display text-4xl font-black">Pilih Gaya, Pilih Barber</h2>
+        </div>
+        <div class="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 hover:shadow-lg transition">
+                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-3xl mb-5">✂️</div>
+                <h3 class="font-display text-xl font-bold mb-2">Haircut Classic</h3>
+                <p class="text-stone-500 text-sm mb-4">Potongan rambut pria modern + styling.</p>
+                <p class="text-brand-600 font-bold text-lg">Rp 50.000</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-brand-500">
+                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-3xl mb-5">🪒</div>
+                <h3 class="font-display text-xl font-bold mb-2">Haircut + Shave</h3>
+                <p class="text-stone-500 text-sm mb-4">Paket lengkap potong + cukur jenggot.</p>
+                <p class="text-brand-600 font-bold text-lg">Rp 85.000</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 hover:shadow-lg transition">
+                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-3xl mb-5">💆</div>
+                <h3 class="font-display text-xl font-bold mb-2">Hair Wash</h3>
+                <p class="text-stone-500 text-sm mb-4">Cuci rambut dengan produk premium.</p>
+                <p class="text-brand-600 font-bold text-lg">Rp 30.000</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYANAN CAFE -->
+    <section class="bg-ink-900 text-white px-16 py-20">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 gap-16 items-center">
+            <div
+                class="aspect-video rounded-3xl bg-gradient-to-br from-brand-600 to-brand-700 flex items-center justify-center text-9xl shadow-2xl">
+                ☕</div>
+            <div>
+                <p class="text-brand-400 font-semibold text-sm tracking-widest mb-2">SELAGI KOPI</p>
+                <h2 class="font-display text-4xl font-black mb-5">Café Premium dalam Barbershop</h2>
+                <p class="text-stone-300 leading-relaxed mb-6">
+                    Sambil menunggu giliran, pesan kopi favoritmu langsung dari aplikasi. Kopi single-origin, manual
+                    brew, sampai mocktail segar — semua tersedia.
+                </p>
+                <a href="03-menu.html"
+                    class="inline-block bg-brand-500 text-black px-6 py-3 font-semibold rounded-full text-sm">Lihat Menu
+                    Café →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-brand-500 px-16 py-14 text-center">
+        <h2 class="font-display text-4xl font-black text-black mb-4">Siap Tampil Keren Hari Ini?</h2>
+        <p class="text-black/70 mb-6">Reservasi barber favoritmu dalam 30 detik.</p>
+        <a href="04-booking.html"
+            class="inline-block bg-black text-white px-8 py-3.5 font-semibold rounded-full">Booking Sekarang</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-ink-900 text-stone-400 px-16 py-12">
+        <div class="max-w-6xl mx-auto grid grid-cols-4 gap-10">
+            <div>
+                <p class="font-display text-xl font-black text-white mb-3">Barber<span
+                        class="text-brand-400">&amp;Brew</span></p>
+                <p class="text-sm">Barbershop premium dengan café dalam satu tempat.</p>
+            </div>
+            <div>
+                <p class="text-white font-semibold mb-3">Layanan</p>
+                <ul class="space-y-2 text-sm">
+                    <li>Haircut</li>
+                    <li>Shave</li>
+                    <li>Hair Wash</li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-white font-semibold mb-3">Info</p>
+                <ul class="space-y-2 text-sm">
+                    <li>Tentang</li>
+                    <li>Kontak</li>
+                    <li>FAQ</li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-white font-semibold mb-3">Kontak</p>
+                <ul class="space-y-2 text-sm">
+                    <li>📍 Jl. Sudirman No. 123</li>
+                    <li>📞 0812-3456-7890</li>
+                    <li>✉️ hello@barberbrew.id</li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center text-xs mt-10 text-stone-600">© 2025 Barber &amp; Brew. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

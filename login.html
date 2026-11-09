@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login — Barber & Brew</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#fffbeb', 100: '#fef3c7', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
+                        ink: { 900: '#1c1917' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans">
+
+    <div class="grid grid-cols-2 min-h-screen">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- KIRI: FORM LOGIN                            -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="p-16 flex flex-col justify-center bg-white">
+
+            <a href="01-landing.html" class="font-display text-2xl font-black inline-block">
+                Barber<span class="text-brand-500">&amp;Brew</span>
+            </a>
+
+            <h1 class="font-display text-4xl font-black mt-12 mb-2">Selamat Datang 👋</h1>
+            <p class="text-stone-500 mb-8">Masuk untuk melanjutkan reservasi</p>
+
+            <form class="space-y-5" onsubmit="return false">
+
+                <!-- Email -->
+                <div>
+                    <label class="text-sm font-semibold block mb-2">Email</label>
+                    <input type="email" placeholder="nama@email.com" class="w-full border border-stone-300 rounded-lg px-4 py-3 text-sm
+                      focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100">
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label class="text-sm font-semibold block mb-2">Password</label>
+                    <input type="password" placeholder="••••••••" class="w-full border border-stone-300 rounded-lg px-4 py-3 text-sm
+                      focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100">
+                </div>
+
+                <!-- Remember + Forgot -->
+                <div class="flex justify-between items-center text-sm">
+                    <label class="flex items-center gap-2 text-stone-600">
+                        <input type="checkbox" class="rounded border-stone-300 text-brand-500 focus:ring-brand-500">
+                        Ingat saya
+                    </label>
+                    <a href="#" class="text-brand-600 font-semibold hover:underline">Lupa password?</a>
+                </div>
+
+                <!-- Button -->
+                <button type="submit" class="w-full bg-ink-900 text-white py-3.5 rounded-lg font-semibold
+                     hover:bg-black transition">
+                    Masuk
+                </button>
+
+                <!-- Divider -->
+                <div class="relative my-2">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-stone-200"></div>
+                    </div>
+                    <div class="relative flex justify-center text-xs">
+                        <span class="bg-white px-3 text-stone-400">atau masuk dengan</span>
+                    </div>
+                </div>
+
+                <!-- Google -->
+                <button type="button" class="w-full border border-stone-300 py-3 rounded-lg font-semibold text-sm
+                     flex items-center justify-center gap-2 hover:bg-stone-50 transition">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24">
+                        <path fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" />
+                        <path fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z" />
+                        <path fill="#FBBC05"
+                            d="M5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.06H2.18A11 11 0 0 0 1 12c0 1.78.43 3.46 1.18 4.94l3.66-2.84z" />
+                        <path fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z" />
+                    </svg>
+                    Google
+                </button>
+
+            </form>
+
+            <p class="text-center text-sm text-stone-500 mt-8">
+                Belum punya akun?
+                <a href="#" class="text-brand-600 font-semibold hover:underline">Daftar sekarang</a>
+            </p>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- KANAN: VISUAL / BRANDING                    -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="relative bg-ink-900 text-white overflow-hidden flex items-center justify-center">
+
+            <!-- Glow -->
+            <div class="absolute inset-0"
+                style="background:radial-gradient(circle at 60% 40%, rgba(245,158,11,.35), transparent 65%)"></div>
+
+            <!-- Konten -->
+            <div class="relative px-16 max-w-lg text-center">
+
+                <div class="w-40 h-40 mx-auto rounded-3xl bg-gradient-to-br from-brand-500 to-brand-700
+                  flex items-center justify-center text-8xl shadow-2xl mb-10">
+                    💈
+                </div>
+
+                <h2 class="font-display text-4xl font-black leading-tight mb-4">
+                    Potong Rambut<br><span class="text-brand-400">Sambil Ngopi</span>
+                </h2>
+
+                <p class="text-stone-300 leading-relaxed mb-10">
+                    Reservasi barber favoritmu, nikmati kopi premium, dan kelola semuanya dalam satu platform.
+                </p>
+
+                <!-- Testimonial -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-left backdrop-blur">
+                    <p class="text-sm text-stone-200 italic leading-relaxed">
+                        "Booking gampang, barber-nya profesional, dan kopinya enak. Weekend jadi lebih rapi!"
+                    </p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center font-bold text-black">
+                            A</div>
+                        <div>
+                            <p class="text-sm font-semibold">Andi Pratama</p>
+                            <p class="text-xs text-stone-400">Pelanggan setia</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
