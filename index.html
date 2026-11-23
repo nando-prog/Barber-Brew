@@ -1,230 +1,286 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Barber & Brew — Potong Rambut Sambil Ngopi</title>
+    <title>Barber &amp; Brew — Potong Rambut Sambil Ngopi</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-    <!-- Custom CSS -->
+    <!-- Custom CSS (opsional untuk komponen dinamis dari app.js) -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="font-sans bg-stone-100 text-stone-900 antialiased selection:bg-amber-400 selection:text-stone-950">
 
     <!-- Navbar -->
-    <nav class="bg-stone-950 text-white px-6 md:px-12 py-5 flex items-center justify-between sticky top-0 z-20">
-
-        <!-- Logo -->
-        <a href="index.html" class="display text-2xl font-black">
-            Barber<span class="brand">&amp;Brew</span>
-        </a>
-
-        <!-- Desktop Navigation -->
-        <div class="desktop-nav flex gap-7 text-sm">
-            <a class="navlink" href="#layanan">
-                Layanan
+    <nav class="bg-stone-950/90 backdrop-blur-md text-white border-b border-white/10 sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="display font-serif text-2xl font-extrabold tracking-tight">
+                Barber<span class="brand text-amber-400">&amp;Brew</span>
             </a>
 
-            <a class="navlink" href="#konsep">
-                Konsep
-            </a>
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden md:flex items-center gap-8 text-sm font-medium text-stone-300">
+                <a class="navlink hover:text-amber-400 transition-colors" href="#layanan">Layanan</a>
+                <a class="navlink hover:text-amber-400 transition-colors" href="#konsep">Konsep</a>
+                <a class="navlink hover:text-amber-400 transition-colors" href="#kontak">Kontak</a>
+            </div>
 
-            <a class="navlink" href="#kontak">
-                Kontak
-            </a>
+            <!-- Authentication Buttons -->
+            <div class="flex items-center gap-2.5">
+                <a href="login.html"
+                    class="inline-flex items-center justify-center rounded-xl border border-white/25 bg-transparent px-4 py-2 text-sm font-semibold text-white hover:border-amber-400 hover:bg-white/5 hover:text-amber-400 transition-colors">
+                    Masuk
+                </a>
+                <a href="login.html?daftar=1"
+                    class="btn btn-gold inline-flex items-center justify-center rounded-xl bg-amber-400 px-4 py-2 text-sm font-bold text-stone-950 shadow-lg shadow-amber-500/20 hover:bg-amber-300 transition-colors">
+                    Daftar
+                </a>
+            </div>
         </div>
 
-        <!-- Authentication Buttons -->
-        <div class="flex gap-2">
-            <a href="login.html" class="btn btn-outline text-sm">
-                Masuk
-            </a>
-
-            <a href="login.html?daftar=1" class="btn btn-gold text-sm">
-                Daftar
-            </a>
+        <!-- Mobile Navigation -->
+        <div
+            class="md:hidden border-t border-white/10 px-6 py-2.5 flex justify-center gap-6 text-xs font-medium text-stone-300">
+            <a class="hover:text-amber-400 transition-colors" href="#layanan">Layanan</a>
+            <a class="hover:text-amber-400 transition-colors" href="#konsep">Konsep</a>
+            <a class="hover:text-amber-400 transition-colors" href="#kontak">Kontak</a>
         </div>
-
     </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-stone-950 text-white page-pad px-8 md:px-16 py-20 md:py-28">
+    <!-- Hero Section with Barbershop Background Image -->
+    <header class="relative overflow-hidden bg-stone-950 text-white page-pad px-6 md:px-12 py-20 md:py-28">
+        <!-- Background Photo & Dark Gradient Overlay -->
+        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1920&q=80"
+            alt="Suasana interior barbershop Barber & Brew"
+            class="absolute inset-0 h-full w-full object-cover object-center opacity-40">
+        <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/90 to-stone-950/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/40"></div>
 
-        <div class="hero-grid max-w-6xl mx-auto grid grid-cols-2 gap-14 items-center">
+        <div class="hero-grid relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
             <!-- Hero Content -->
-            <div>
+            <div class="lg:col-span-7">
+                <div
+                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-900/80 backdrop-blur-sm border border-amber-400/35 text-amber-400 text-xs font-bold tracking-[.2em]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                    BARBERSHOP &amp; CAFÉ
+                </div>
 
-                <span class="text-amber-400 text-xs font-bold tracking-[.2em]">
-                    BARBERSHOP & CAFÉ
-                </span>
-
-                <h1 class="display text-5xl md:text-7xl font-black leading-tight mt-5">
+                <h1 class="display font-serif text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1] mt-6">
                     Potong Rambut<br>
-                    <span class="text-amber-400">
-                        Sambil Ngopi.
-                    </span>
+                    <span class="text-amber-400">Sambil Ngopi.</span>
                 </h1>
 
-                <p class="text-stone-300 text-lg leading-relaxed mt-6 max-w-xl">
-                    Atur reservasi barber dan pesan menu café dalam satu
-                    tempat. Pilih layanan, tentukan jadwal, lalu nikmati
-                    pengalaman Barber &amp; Brew.
+                <p class="text-stone-300 text-base md:text-lg leading-relaxed mt-6 max-w-xl">
+                    Atur reservasi barber dan pesan menu café dalam satu tempat. Pilih layanan, tentukan jadwal, lalu
+                    nikmati pengalaman Barber &amp; Brew tanpa menunggu lama.
                 </p>
 
                 <!-- Hero Buttons -->
-                <div class="flex flex-wrap gap-3 mt-8">
-
-                    <a href="login.html?daftar=1" class="btn btn-gold">
+                <div class="flex flex-wrap gap-3.5 mt-8">
+                    <a href="login.html?daftar=1"
+                        class="btn btn-gold inline-flex items-center justify-center rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-stone-950 shadow-lg shadow-amber-500/25 hover:bg-amber-300 transition-all">
                         Mulai Reservasi
                     </a>
-
-                    <a href="#layanan" class="btn border border-white/30 text-white">
+                    <a href="#layanan"
+                        class="btn inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/5 backdrop-blur-sm px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/15 transition-all">
                         Jelajahi Layanan
                     </a>
-
                 </div>
 
+                <!-- Step Highlights -->
+                <div class="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/15 max-w-lg">
+                    <div>
+                        <p class="display font-serif text-2xl font-bold text-white">01</p>
+                        <p class="text-xs text-stone-300 mt-1">Pilih Barber &amp; Jadwal</p>
+                    </div>
+                    <div>
+                        <p class="display font-serif text-2xl font-bold text-amber-400">02</p>
+                        <p class="text-xs text-stone-300 mt-1">Tambah Menu Café</p>
+                    </div>
+                    <div>
+                        <p class="display font-serif text-2xl font-bold text-white">03</p>
+                        <p class="text-xs text-stone-300 mt-1">Datang &amp; Nikmati</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Hero Illustration -->
-            <div
-                class="rounded-3xl min-h-72 md:min-h-96 bg-gradient-to-br from-amber-500 to-amber-900 flex items-center justify-center text-9xl shadow-2xl">
-                💈
+            <!-- Glassmorphism Showcase Card -->
+            <div class="lg:col-span-5">
+                <div class="rounded-3xl p-6 sm:p-8 bg-stone-900/75 backdrop-blur-md border border-white/15 shadow-2xl">
+                    <div class="relative h-48 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80"
+                            alt="Layanan cukur profesional" class="h-full w-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent">
+                        </div>
+                        <span
+                            class="absolute top-3 right-3 text-[11px] font-semibold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 backdrop-blur-sm">
+                            Booking Online Aktif
+                        </span>
+                        <div class="absolute bottom-3 left-4">
+                            <p class="text-[11px] uppercase tracking-widest text-amber-400 font-bold">Signature
+                                Experience</p>
+                            <p class="font-serif text-lg font-bold text-white">Grooming &amp; Specialty Coffee</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-sm">
+                        <div
+                            class="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/10">
+                            <span class="text-stone-200">Haircut, Fade &amp; Beard Trim</span>
+                            <span class="text-amber-400 font-semibold text-xs uppercase tracking-wider">Barber</span>
+                        </div>
+                        <div
+                            class="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/10">
+                            <span class="text-stone-200">Espresso, Manual Brew &amp; Mocktail</span>
+                            <span class="text-amber-400 font-semibold text-xs uppercase tracking-wider">Café</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
-
     </header>
 
     <!-- Services Section -->
-    <section id="layanan" class="page-pad px-8 md:px-16 py-20">
-
+    <section id="layanan" class="relative page-pad px-6 md:px-12 py-20 bg-stone-100">
         <div class="max-w-6xl mx-auto">
 
             <!-- Section Heading -->
-            <p class="brand font-bold tracking-widest text-xs">
+            <p class="brand text-amber-700 font-bold tracking-widest text-xs uppercase">
                 LAYANAN KAMI
             </p>
 
-            <div class="flex flex-wrap justify-between items-end gap-4 mb-8">
-
-                <h2 class="display text-4xl font-bold">
+            <div class="flex flex-wrap justify-between items-end gap-4 mt-2 mb-10">
+                <h2 class="display font-serif text-3xl md:text-4xl font-bold text-stone-900">
                     Temukan layananmu
                 </h2>
 
-                <a href="login.html?daftar=1" class="text-sm font-bold underline">
-                    Pesan sekarang →
+                <a href="login.html?daftar=1"
+                    class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-700 hover:text-amber-800 transition-colors">
+                    <span>Pesan sekarang</span>
+                    <span aria-hidden="true">→</span>
                 </a>
-
             </div>
 
             <!-- Dynamic Services -->
-            <div id="home-services" class="grid md:grid-cols-3 gap-5">
-                <p class="text-stone-500">
+            <div id="home-services" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div
+                    class="col-span-full rounded-2xl border border-stone-200 bg-white p-8 text-center text-stone-500 text-sm shadow-sm">
                     Memuat layanan…
-                </p>
+                </div>
             </div>
 
         </div>
-
     </section>
 
-    <!-- Concept Section -->
-    <section id="konsep" class="bg-stone-900 text-white page-pad px-8 md:px-16 py-20">
+    <!-- Concept Section with Coffee Background Image -->
+    <section id="konsep"
+        class="relative overflow-hidden bg-stone-950 text-white page-pad px-6 md:px-12 py-24 border-y border-white/10">
+        <!-- Background Photo & Overlay -->
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1920&q=80"
+            alt="Suasana café dan penyajian kopi"
+            class="absolute inset-0 h-full w-full object-cover object-center opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-l from-stone-950 via-stone-950/90 to-stone-950/75"></div>
 
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            <!-- Concept Illustration -->
-            <div class="text-8xl text-center">
-                ☕
+            <!-- Concept Visual Photo Card -->
+            <div class="rounded-3xl overflow-hidden border border-white/15 bg-stone-900/80 backdrop-blur-md shadow-2xl">
+                <div class="relative h-64 sm:h-72">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=80"
+                        alt="Kopi segar disajikan saat menunggu" class="h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/30 to-transparent"></div>
+                    <div class="absolute bottom-5 left-6 right-6">
+                        <span class="inline-block text-xs font-bold tracking-wider uppercase text-amber-400 mb-1">
+                            Freshly Brewed
+                        </span>
+                        <p class="font-serif text-xl font-bold text-white">
+                            Kopi siap saji tepat saat kamu duduk di kursi barber
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <!-- Concept Content -->
             <div>
-
-                <p class="text-amber-400 text-xs font-bold tracking-widest">
+                <p class="text-amber-400 text-xs font-bold tracking-widest uppercase">
                     BARBER MEETS BREW
                 </p>
 
-                <h2 class="display text-4xl font-bold mt-3">
+                <h2 class="display font-serif text-3xl md:text-4xl font-bold mt-3 leading-tight">
                     Satu kunjungan, dua pengalaman.
                 </h2>
 
                 <p class="text-stone-300 mt-5 leading-relaxed">
-                    Pilih layanan barbershop dan tambahkan produk café
-                    ke pesananmu. Katalog serta ketersediaan produk
-                    ditampilkan berdasarkan data dari sistem.
+                    Pilih layanan barbershop dan tambahkan produk café ke pesananmu. Katalog serta ketersediaan produk
+                    ditampilkan secara langsung berdasarkan data dari sistem.
                 </p>
 
-                <a href="login.html?daftar=1" class="btn btn-gold mt-7">
+                <a href="login.html?daftar=1"
+                    class="btn btn-gold mt-8 inline-flex items-center justify-center rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-stone-950 shadow-lg shadow-amber-500/20 hover:bg-amber-300 transition-all">
                     Buat Pesanan
                 </a>
-
             </div>
 
         </div>
-
     </section>
 
     <!-- Footer -->
-    <footer id="kontak" class="bg-stone-950 text-stone-400 px-8 md:px-16 py-10">
-
-        <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-6">
+    <footer id="kontak" class="bg-stone-950 text-stone-400 px-6 md:px-12 py-12">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-8">
 
             <!-- Brand Information -->
             <div>
-
-                <p class="display text-white text-2xl font-bold">
-                    Barber<span class="brand">&amp;Brew</span>
+                <p class="display font-serif text-white text-2xl font-bold">
+                    Barber<span class="brand text-amber-400">&amp;Brew</span>
                 </p>
-
-                <p class="text-sm mt-2">
-                    Barbershop dan café dalam satu pengalaman.
+                <p class="text-sm mt-2 max-w-xs">
+                    Barbershop dan café dalam satu pengalaman terintegrasi.
                 </p>
-
             </div>
 
             <!-- Footer Navigation -->
-            <div class="text-sm">
-
-                <p class="text-white font-semibold">
-                    Akses
-                </p>
-
-                <p class="mt-2">
-                    <a href="login.html">
-                        Masuk / Daftar
-                    </a>
-                </p>
-
-                <p class="mt-1">
-                    <a href="login.html">
-                        Reservasi dan pesanan
-                    </a>
-                </p>
-
+            <div class="text-sm space-y-2">
+                <p class="text-white font-semibold">Akses Cepat</p>
+                <p><a class="hover:text-amber-400 transition-colors" href="login.html">Masuk / Daftar</a></p>
+                <p><a class="hover:text-amber-400 transition-colors" href="login.html">Reservasi dan pesanan</a></p>
             </div>
 
         </div>
 
         <!-- Copyright -->
-        <p class="max-w-6xl mx-auto text-xs mt-10">
-            © 2026 Barber &amp; Brew.
-        </p>
-
+        <div
+            class="max-w-6xl mx-auto border-t border-white/10 mt-10 pt-6 flex flex-wrap justify-between items-center gap-4 text-xs">
+            <p>© 2026 Barber &amp; Brew. All rights reserved.</p>
+            <p class="text-stone-500">Barbershop &amp; Specialty Coffee</p>
+        </div>
     </footer>
 
     <!-- JavaScript -->

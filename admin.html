@@ -5,115 +5,154 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Konfirmasi Pembayaran — Barber & Brew</title>
+    <title>Konfirmasi Pembayaran — Barber &amp; Brew</title>
 
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="font-sans bg-stone-100 text-stone-900 antialiased">
 
     <!-- Navbar -->
-    <nav class="bg-stone-950 text-white px-6 md:px-12 py-5 flex justify-between items-center">
-        <a href="index.html" class="display text-2xl font-bold">
-            Barber<span class="brand">&amp;Brew</span>
+<!-- Navbar -->
+<nav class="bg-stone-950/95 backdrop-blur-md text-white border-b border-white/10 sticky top-0 z-30">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="display font-serif text-2xl font-bold">
+            Barber<span class="brand text-amber-400">&amp;Brew</span>
         </a>
 
-        <div class="flex items-center gap-4">
-            <span class="text-sm text-stone-300">
-                Admin
+        <!-- Navigation Actions -->
+        <div class="flex items-center gap-3 sm:gap-4">
+            <span
+                class="hidden sm:inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-amber-400/15 text-amber-300 border border-amber-400/25">
+                Admin Kasir
             </span>
 
-            <button class="btn btn-outline text-sm" data-logout>
+            <button
+                class="rounded-xl border border-white/25 bg-transparent px-4 py-2 text-sm font-semibold text-white hover:border-amber-400 hover:bg-white/5 hover:text-amber-400 transition-colors"
+                data-logout>
                 Keluar
             </button>
         </div>
-    </nav>
+    </div>
+</nav>
+    <!-- Atmospheric Header -->
+    <header class="relative overflow-hidden bg-stone-950 text-white pb-20 pt-10 md:pt-12">
+        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1800&q=80"
+            alt="Meja kasir Barber & Brew" class="absolute inset-0 h-full w-full object-cover object-center opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/90 to-stone-950/70"></div>
 
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-5 py-12">
-
-        <!-- Page Heading -->
-        <section>
-            <p class="brand text-xs font-bold tracking-widest">
+        <div class="relative z-10 max-w-4xl mx-auto px-5 md:px-8">
+            <p class="brand text-amber-400 text-xs font-bold tracking-widest uppercase">
                 ADMIN TOOL
             </p>
 
-            <h1 class="display text-4xl font-bold mt-2">
+            <h1 class="display font-serif text-3xl sm:text-4xl font-bold mt-1.5">
                 Konfirmasi pembayaran
             </h1>
 
-            <p class="text-stone-500 mt-3">
-                Daftar pesanan pelanggan. Pesanan yang menunggu pembayaran
-                tampil paling atas. Klik <b>Konfirmasi</b> setelah memeriksa
-                pembayaran tunai secara langsung.
+            <p class="text-stone-300 text-sm sm:text-base mt-2.5 max-w-2xl">
+                Daftar pesanan pelanggan. Pesanan yang menunggu pembayaran tampil paling atas. Klik <b
+                    class="text-white">Konfirmasi</b> setelah menerima pembayaran tunai secara langsung.
             </p>
-        </section>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-20 max-w-4xl mx-auto px-5 md:px-8 -mt-12 pb-14">
 
         <!-- Notification -->
-        <div id="admin-message" class="notice mt-6" hidden></div>
+        <div id="admin-message"
+            class="notice rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900 shadow-sm mb-6"
+            hidden></div>
 
         <!-- Order List Panel -->
-        <section class="panel p-6 mt-6">
+        <section class="panel rounded-2xl border border-stone-200/80 bg-white p-5 sm:p-6 shadow-md">
 
             <!-- Search and Filter -->
             <div class="grid sm:grid-cols-3 gap-3">
+                <div class="relative sm:col-span-2">
+                    <input
+                        class="field w-full rounded-xl border border-stone-300 bg-stone-50 pl-10 pr-4 py-2.5 text-sm text-stone-900 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                        id="order-search" type="search" placeholder="Cari kode pesanan, ID, atau nama pelanggan"
+                        autocomplete="off">
+                    <svg class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </div>
 
-                <input class="field sm:col-span-2" id="order-search" type="search"
-                    placeholder="Cari kode pesanan, ID, atau nama pelanggan" autocomplete="off">
-
-                <select class="field" id="order-filter">
-                    <option value="pending">
-                        Menunggu pembayaran
-                    </option>
-
-                    <option value="all">
-                        Semua pesanan
-                    </option>
+                <select
+                    class="field w-full rounded-xl border border-stone-300 bg-stone-50 px-3.5 py-2.5 text-sm font-medium text-stone-900 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                    id="order-filter">
+                    <option value="pending">Menunggu pembayaran</option>
+                    <option value="all">Semua pesanan</option>
                 </select>
-
             </div>
 
             <!-- Orders Container -->
-            <div id="admin-orders" class="space-y-4 mt-5">
-                <p class="text-stone-500">
+            <div id="admin-orders" class="space-y-4 mt-6">
+                <div class="rounded-xl border border-stone-200 bg-stone-50 p-6 text-center text-stone-500 text-sm">
                     Memuat pesanan…
-                </p>
+                </div>
             </div>
 
         </section>
 
         <!-- Manual Confirmation Panel -->
-        <section class="panel p-6 mt-6">
+        <section class="panel rounded-2xl border border-stone-200/80 bg-white p-5 sm:p-6 mt-6 shadow-md">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <h2 class="display font-serif text-xl font-bold text-stone-900">
+                    Konfirmasi manual
+                </h2>
+                <span
+                    class="text-xs font-mono px-2.5 py-1 rounded-md bg-stone-100 border border-stone-200 text-stone-600">
+                    Contoh: BB261121AB12CD
+                </span>
+            </div>
 
-            <h2 class="display text-xl font-bold">
-                Konfirmasi manual
-            </h2>
-
-            <p class="text-sm text-stone-500 mt-1 mb-4">
-                Masukkan <b>kode pesanan</b>
-                (contoh: BB261121AB12CD) atau ID angka.
+            <p class="text-sm text-stone-500 mt-1.5 mb-4">
+                Masukkan <b class="text-stone-700">kode pesanan</b> atau ID angka jika pelanggan langsung menunjukkan
+                kode di kasir.
             </p>
 
-            <form id="payment-form" class="flex flex-wrap gap-3">
+            <form id="payment-form" class="flex flex-col sm:flex-row gap-3">
+                <input
+                    class="field flex-1 rounded-xl border border-stone-300 bg-stone-50 px-4 py-3 text-sm font-mono uppercase text-stone-900 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                    id="order-ref" name="order_ref" type="text" required maxlength="32" autocomplete="off"
+                    placeholder="Kode atau ID pesanan">
 
-                <input class="field flex-1 min-w-48" id="order-ref" name="order_ref" type="text" required maxlength="32"
-                    autocomplete="off" placeholder="Kode atau ID pesanan">
-
-                <button class="btn btn-dark" type="submit">
+                <button
+                    class="btn btn-dark shrink-0 rounded-xl bg-stone-950 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-stone-800 transition-colors"
+                    type="submit">
                     Konfirmasi pembayaran tunai
                 </button>
-
             </form>
-
         </section>
 
     </main>

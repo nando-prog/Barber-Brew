@@ -1,1 +1,182 @@
-:root{--ink:#1c1917;--gold:#d99a19;--paper:#faf9f6;--muted:#78716c}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}.display{font-family:'Playfair Display',Georgia,serif}.brand{color:var(--gold)}.panel{background:#fff;border:1px solid #e7e5e4;border-radius:18px;box-shadow:0 8px 30px #1c191708}.field{width:100%;border:1px solid #d6d3d1;border-radius:10px;padding:12px 14px;background:#fff;color:#1c1917}.field:focus{outline:2px solid #f5d58a;border-color:#d99a19}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:11px 17px;font-weight:700;cursor:pointer;border:0}.btn-dark{background:#1c1917;color:white}.btn-gold{background:#eab338;color:#1c1917}.btn-outline{background:white;border:1px solid #d6d3d1;color:#1c1917}.btn:disabled{opacity:.55;cursor:not-allowed}.notice{padding:12px 14px;border-radius:10px;background:#f5f5f4;color:#44403c}.notice.error{background:#fef2f2;color:#991b1b}.notice.success{background:#ecfdf5;color:#065f46}.navlink{color:#d6d3d1;text-decoration:none}.navlink:hover{color:#fbbf24}.product-card{border:1px solid #e7e5e4;border-radius:14px;padding:15px;background:white}.price{font-variant-numeric:tabular-nums}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px;border-bottom:1px solid #e7e5e4;font-size:14px}th{color:#78716c;font-weight:600}@media(max-width:760px){.desktop-nav{display:none}.hero-grid{grid-template-columns:1fr!important}.auth-grid{grid-template-columns:1fr!important}.auth-aside{display:none}.page-pad{padding-left:20px!important;padding-right:20px!important}.stat-grid{grid-template-columns:1fr 1fr!important}}
+/* =========================================================
+   Barber & Brew — Companion Styles for Tailwind CSS
+   Menggunakan :where() agar tidak menimpa utilitas Tailwind
+   ========================================================= */
+
+/* Pastikan elemen dengan atribut hidden selalu tersembunyi */
+[hidden] {
+    display: none !important;
+}
+
+/* Tipografi & Aksen Brand */
+:where(.display) {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+:where(.brand) {
+    color: #d97706;
+    /* amber-600 */
+}
+
+/* Kartu / Panel (statis maupun dinamis dari app.js) */
+:where(.panel) {
+    background-color: #ffffff;
+    border: 1px solid #e7e5e4;
+    /* stone-200 */
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(12, 10, 9, 0.06);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+:where(#home-services .panel:hover, #products .panel:hover) {
+    border-color: #fbbf24;
+    /* amber-400 */
+    box-shadow: 0 8px 20px -6px rgba(12, 10, 9, 0.1);
+}
+
+/* Input & Select (termasuk input jumlah di #products) */
+:where(.field) {
+    display: block;
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid #d6d3d1;
+    /* stone-300 */
+    background-color: #fafaf9;
+    /* stone-50 */
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    color: #1c1917;
+    /* stone-900 */
+    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+:where(.field:focus) {
+    outline: none;
+    border-color: #f59e0b;
+    /* amber-500 */
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.18);
+}
+
+/* Input angka kecil pada kartu menu cafe */
+:where(#products input[type="number"]) {
+    border-radius: 0.625rem;
+    border: 1px solid #d6d3d1;
+    background-color: #fafaf9;
+    padding: 0.375rem 0.625rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1c1917;
+}
+
+:where(#products input[type="number"]:focus) {
+    outline: none;
+    border-color: #f59e0b;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.18);
+}
+
+/* Tombol Bawaan (untuk tombol dinamis di admin.html & barber.html) */
+:where(.btn) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    padding: 0.625rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+}
+
+:where(.btn:disabled) {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+:where(.btn-dark) {
+    background-color: #0c0a09;
+    /* stone-950 */
+    color: #ffffff;
+}
+
+:where(.btn-dark:hover:not(:disabled)) {
+    background-color: #292524;
+    /* stone-800 */
+}
+
+:where(.btn-gold) {
+    background-color: #fbbf24;
+    /* amber-400 */
+    color: #0c0a09;
+    /* stone-950 */
+    font-weight: 700;
+}
+
+:where(.btn-gold:hover:not(:disabled)) {
+    background-color: #fcd34d;
+    /* amber-300 */
+}
+
+:where(.btn-outline) {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+:where(.btn-outline:hover:not(:disabled)) {
+    border-color: #fbbf24;
+    color: #fbbf24;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Notifikasi / Alert (#auth-message, #customer-message, #barber-message, #admin-message) */
+:where(.notice) {
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #fcd34d;
+    /* amber-300 */
+    background-color: #fffbeb;
+    /* amber-50 */
+    color: #78350f;
+    /* amber-900 */
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+:where(.notice.error, .notice.is-error, .notice[data-type="error"]) {
+    border-color: #fca5a5;
+    /* red-300 */
+    background-color: #fef2f2;
+    /* red-50 */
+    color: #991b1b;
+    /* red-800 */
+}
+
+:where(.notice.success, .notice.is-success, .notice[data-type="success"]) {
+    border-color: #6ee7b7;
+    /* emerald-300 */
+    background-color: #ecfdf5;
+    /* emerald-50 */
+    color: #065f46;
+    /* emerald-800 */
+}
+
+/* Status Badge untuk kartu pesanan/reservasi dinamis */
+:where(.badge) {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: #f5f5f4;
+    /* stone-100 */
+    color: #44403c;
+    /* stone-700 */
+}

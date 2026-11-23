@@ -5,193 +5,229 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pesan & Reservasi — Barber & Brew</title>
+    <title>Pesan &amp; Reservasi — Barber &amp; Brew</title>
 
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="font-sans bg-stone-100 text-stone-900 antialiased">
 
     <!-- Navbar -->
-    <nav class="bg-stone-950 text-white px-6 md:px-12 py-5 flex justify-between items-center">
-        <!-- Logo -->
-        <a href="index.html" class="display text-2xl font-bold">
-            Barber<span class="brand">&amp;Brew</span>
-        </a>
+    <nav class="bg-stone-950/95 backdrop-blur-md text-white border-b border-white/10 sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-5 md:px-8 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="display font-serif text-2xl font-bold">
+                Barber<span class="brand text-amber-400">&amp;Brew</span>
+            </a>
 
-        <!-- Navigation Actions -->
-        <div class="flex items-center gap-4">
-            <span class="text-sm text-stone-300">
-                Area pelanggan
-            </span>
+            <!-- Navigation Actions -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <span class="hidden sm:inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-stone-200">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                    Area Pelanggan
+                </span>
 
-            <button class="btn btn-outline text-sm" data-logout>
-                Keluar
-            </button>
+                <button
+                    class="rounded-xl border border-white/25 bg-transparent px-4 py-2 text-sm font-semibold text-white hover:border-amber-400 hover:bg-white/5 hover:text-amber-400 transition-colors"
+                    data-logout>
+                    Keluar
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="page-pad max-w-6xl mx-auto px-5 md:px-8 py-10">
+    <!-- Atmospheric Background Header -->
+    <header class="relative overflow-hidden bg-stone-950 text-white pb-20 pt-10 md:pt-12">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=80"
+            alt="Latar suasana Barber & Brew"
+            class="absolute inset-0 h-full w-full object-cover object-center opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/90 to-stone-950/70"></div>
 
-        <!-- Page Heading -->
-        <section class="mb-8">
-            <p class="brand text-xs font-bold tracking-widest">
-                CUSTOMER SPACE
-            </p>
+        <div class="relative z-10 max-w-6xl mx-auto px-5 md:px-8 flex flex-wrap justify-between items-end gap-4">
+            <div>
+                <p class="brand text-amber-400 text-xs font-bold tracking-widest uppercase">
+                    CUSTOMER SPACE
+                </p>
 
-            <h1 class="display text-4xl font-bold mt-2">
-                Buat pesanan
-            </h1>
+                <h1 class="display font-serif text-3xl sm:text-4xl font-bold mt-1.5">
+                    Buat pesanan
+                </h1>
 
-            <p class="text-stone-500 mt-2">
-                Kamu bisa membuat reservasi barber, memesan café,
-                atau menggabungkan keduanya.
-            </p>
-        </section>
+                <p class="text-stone-300 text-sm sm:text-base mt-2 max-w-xl">
+                    Kamu bisa membuat reservasi barber, memesan menu café, atau menggabungkan keduanya dalam satu transaksi.
+                </p>
+            </div>
+
+            <a href="#riwayat-pesanan" class="lg:hidden text-xs font-bold text-amber-400 underline underline-offset-4">
+                Lihat riwayat pesanan ↓
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content (Overlapping Header Banner) -->
+    <main class="page-pad relative z-20 max-w-6xl mx-auto px-5 md:px-8 -mt-12 pb-14">
 
         <!-- Notification -->
-        <div id="customer-message" class="notice mb-6" hidden></div>
+        <div id="customer-message" class="notice rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900 shadow-sm mb-6" hidden></div>
 
         <!-- Main Grid -->
-        <div class="grid lg:grid-cols-5 gap-6">
+        <div class="grid lg:grid-cols-5 gap-6 items-start">
 
             <!-- Booking and Café Order Form -->
-            <form id="booking-form" class="lg:col-span-3 panel p-6 space-y-5">
+            <form id="booking-form" class="lg:col-span-3 panel rounded-2xl border border-stone-200/80 bg-white p-6 sm:p-8 space-y-6 shadow-md">
 
                 <!-- Section 01: Barber Reservation -->
-                <section>
-                    <h2 class="display text-2xl font-bold">
-                        01. Reservasi barber
-                    </h2>
-
-                    <p class="text-sm text-stone-500 mt-1">
-                        Bagian ini boleh dikosongkan jika hanya ingin
-                        memesan café.
-                    </p>
+                <section class="flex items-start gap-3.5">
+                    <span class="shrink-0 w-9 h-9 rounded-xl bg-stone-950 text-amber-400 display font-serif font-bold text-sm flex items-center justify-center">
+                        01
+                    </span>
+                    <div>
+                        <h2 class="display font-serif text-xl sm:text-2xl font-bold text-stone-900">
+                            Reservasi barber
+                        </h2>
+                        <p class="text-sm text-stone-500 mt-0.5">
+                            Boleh dikosongkan jika kamu hanya ingin memesan menu café.
+                        </p>
+                    </div>
                 </section>
 
-                <!-- Service Selection -->
-                <div>
-                    <label class="block text-sm font-semibold mb-2" for="service-id">
-                        Layanan
-                    </label>
+                <!-- Service & Barber Selection -->
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5 text-stone-700" for="service-id">
+                            Layanan
+                        </label>
+                        <select id="service-id" class="field w-full rounded-xl border border-stone-300 bg-stone-50 px-3.5 py-2.5 text-sm text-stone-900 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20">
+                            <option value="">Memuat layanan…</option>
+                        </select>
+                    </div>
 
-                    <select id="service-id" class="field">
-                        <option value="">
-                            Memuat layanan…
-                        </option>
-                    </select>
-                </div>
-
-                <!-- Barber Selection -->
-                <div>
-                    <label class="block text-sm font-semibold mb-2" for="barber-id">
-                        Barber
-                    </label>
-
-                    <select id="barber-id" class="field">
-                        <option value="">
-                            Pilih barber
-                        </option>
-                    </select>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5 text-stone-700" for="barber-id">
+                            Barber
+                        </label>
+                        <select id="barber-id" class="field w-full rounded-xl border border-stone-300 bg-stone-50 px-3.5 py-2.5 text-sm text-stone-900 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20">
+                            <option value="">Pilih barber</option>
+                        </select>
+                    </div>
                 </div>
 
                 <!-- Booking Date and Time -->
                 <div class="grid sm:grid-cols-2 gap-4">
-
                     <div>
-                        <label class="block text-sm font-semibold mb-2" for="booking-date">
+                        <label class="block text-sm font-semibold mb-1.5 text-stone-700" for="booking-date">
                             Tanggal
                         </label>
-
-                        <input class="field" id="booking-date" type="date">
+                        <input class="field w-full rounded-xl border border-stone-300 bg-stone-50 px-3.5 py-2.5 text-sm text-stone-900 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                            id="booking-date" type="date">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold mb-2" for="booking-time">
+                        <label class="block text-sm font-semibold mb-1.5 text-stone-700" for="booking-time">
                             Jam mulai
                         </label>
-
-                        <input class="field" id="booking-time" type="time" step="60">
+                        <input class="field w-full rounded-xl border border-stone-300 bg-stone-50 px-3.5 py-2.5 text-sm text-stone-900 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                            id="booking-time" type="time" step="60">
                     </div>
-
                 </div>
 
                 <!-- Booking Notes -->
                 <div>
-                    <label class="block text-sm font-semibold mb-2" for="booking-note">
-                        Catatan untuk barber
+                    <label class="block text-sm font-semibold mb-1.5 text-stone-700" for="booking-note">
+                        Catatan untuk barber <span class="text-stone-400 font-normal">(opsional)</span>
                     </label>
-
-                    <textarea class="field" id="booking-note" rows="2"
-                        placeholder="Contoh: ingin model taper"></textarea>
+                    <textarea class="field w-full rounded-xl border border-stone-300 bg-stone-50 px-3.5 py-2.5 text-sm text-stone-900 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                        id="booking-note" rows="2"
+                        placeholder="Contoh: ingin model low taper fade, bagian atas dirapikan sedikit"></textarea>
                 </div>
 
-                <hr>
+                <hr class="border-stone-200">
 
                 <!-- Section 02: Café Menu -->
-                <section>
-                    <h2 class="display text-2xl font-bold">
-                        02. Menu café
-                    </h2>
-
-                    <p class="text-sm text-stone-500 mt-1">
-                        Pilih produk dan jumlah yang diinginkan.
-                    </p>
+                <section class="flex items-start gap-3.5">
+                    <span class="shrink-0 w-9 h-9 rounded-xl bg-amber-400 text-stone-950 display font-serif font-bold text-sm flex items-center justify-center">
+                        02
+                    </span>
+                    <div>
+                        <h2 class="display font-serif text-xl sm:text-2xl font-bold text-stone-900">
+                            Menu café
+                        </h2>
+                        <p class="text-sm text-stone-500 mt-0.5">
+                            Pilih produk dan jumlah yang diinginkan.
+                        </p>
+                    </div>
                 </section>
 
                 <!-- Product List -->
-                <div id="products" class="grid sm:grid-cols-2 gap-3">
-                    <p class="text-stone-500">
+                <div id="products" class="grid sm:grid-cols-2 gap-3.5">
+                    <p class="text-stone-500 text-sm">
                         Memuat produk…
                     </p>
                 </div>
 
                 <!-- Submit Order -->
-                <button class="btn btn-dark w-full" type="submit">
-                    Buat Pesanan
-                </button>
+                <div class="pt-2 space-y-3">
+                    <button class="btn btn-dark w-full rounded-xl bg-stone-950 px-5 py-3.5 text-sm font-bold text-white shadow-md hover:bg-stone-800 transition-colors" type="submit">
+                        Buat Pesanan
+                    </button>
 
-                <!-- Payment Information -->
-                <p class="text-xs text-stone-500">
-                    Pesanan dibuat dengan status menunggu pembayaran.
-                    Konfirmasi pembayaran dilakukan admin sesuai alur
-                    backend saat ini.
-                </p>
+                    <!-- Payment Information -->
+                    <div class="flex items-start gap-2.5 rounded-xl bg-stone-100 border border-stone-200 px-3.5 py-3 text-xs text-stone-600">
+                        <span class="text-amber-600 font-bold mt-0.5">ℹ</span>
+                        <p>
+                            Pesanan dibuat dengan status <b class="text-stone-800">menunggu pembayaran</b>. Konfirmasi pembayaran tunai dilakukan oleh admin di kasir.
+                        </p>
+                    </div>
+                </div>
 
             </form>
 
             <!-- Order History -->
-            <aside class="lg:col-span-2">
-
-                <section class="panel p-6">
-
-                    <h2 class="display text-2xl font-bold">
-                        Riwayat pesanan
-                    </h2>
+            <aside id="riwayat-pesanan" class="lg:col-span-2 lg:sticky lg:top-24">
+                <section class="panel rounded-2xl border border-stone-200/80 bg-white p-6 shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h2 class="display font-serif text-xl sm:text-2xl font-bold text-stone-900">
+                            Riwayat pesanan
+                        </h2>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Live
+                        </span>
+                    </div>
 
                     <p class="text-sm text-stone-500 mt-1 mb-5">
                         Status terbaru dari server.
                     </p>
 
                     <div id="orders-list" class="space-y-4">
-                        <p class="text-stone-500">
+                        <p class="text-stone-500 text-sm">
                             Memuat pesanan…
                         </p>
                     </div>
-
                 </section>
-
             </aside>
 
         </div>
