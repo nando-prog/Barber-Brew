@@ -1,1 +1,206 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pesan & Reservasi — Barber & Brew</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="assets/css/style.css"></head><body><nav class="bg-stone-950 text-white px-6 md:px-12 py-5 flex justify-between items-center"><a href="index.html" class="display text-2xl font-bold">Barber<span class="brand">&amp;Brew</span></a><div class="flex items-center gap-4"><span class="text-sm text-stone-300">Area pelanggan</span><button class="btn btn-outline text-sm" data-logout>Keluar</button></div></nav><main class="page-pad max-w-6xl mx-auto px-5 md:px-8 py-10"><div class="mb-8"><p class="brand text-xs font-bold tracking-widest">CUSTOMER SPACE</p><h1 class="display text-4xl font-bold mt-2">Buat pesanan</h1><p class="text-stone-500 mt-2">Kamu bisa membuat reservasi barber, memesan café, atau menggabungkan keduanya.</p></div><div id="customer-message" class="notice mb-6" hidden></div><div class="grid lg:grid-cols-5 gap-6"><form id="booking-form" class="lg:col-span-3 panel p-6 space-y-5"><div><h2 class="display text-2xl font-bold">01. Reservasi barber</h2><p class="text-sm text-stone-500 mt-1">Bagian ini boleh dikosongkan jika hanya ingin memesan café.</p></div><div><label class="block text-sm font-semibold mb-2" for="service-id">Layanan</label><select id="service-id" class="field"><option value="">Memuat layanan…</option></select></div><div><label class="block text-sm font-semibold mb-2" for="barber-id">Barber</label><select id="barber-id" class="field"><option value="">Pilih barber</option></select></div><div class="grid sm:grid-cols-2 gap-4"><div><label class="block text-sm font-semibold mb-2" for="booking-date">Tanggal</label><input class="field" id="booking-date" type="date"></div><div><label class="block text-sm font-semibold mb-2" for="booking-time">Jam mulai</label><input class="field" id="booking-time" type="time" step="60"></div></div><div><label class="block text-sm font-semibold mb-2" for="booking-note">Catatan untuk barber</label><textarea class="field" id="booking-note" rows="2" placeholder="Contoh: ingin model taper"></textarea></div><hr><div><h2 class="display text-2xl font-bold">02. Menu café</h2><p class="text-sm text-stone-500 mt-1">Pilih produk dan jumlah yang diinginkan.</p></div><div id="products" class="grid sm:grid-cols-2 gap-3"><p class="text-stone-500">Memuat produk…</p></div><button class="btn btn-dark w-full" type="submit">Buat Pesanan</button><p class="text-xs text-stone-500">Pesanan dibuat dengan status menunggu pembayaran. Konfirmasi pembayaran dilakukan admin sesuai alur backend saat ini.</p></form><aside class="lg:col-span-2"><div class="panel p-6"><h2 class="display text-2xl font-bold">Riwayat pesanan</h2><p class="text-sm text-stone-500 mt-1 mb-5">Status terbaru dari server.</p><div id="orders-list" class="space-y-4"><p class="text-stone-500">Memuat pesanan…</p></div></div></aside></div></main><script src="assets/js/app.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pesan & Reservasi — Barber & Brew</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="bg-stone-950 text-white px-6 md:px-12 py-5 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="display text-2xl font-bold">
+            Barber<span class="brand">&amp;Brew</span>
+        </a>
+
+        <!-- Navigation Actions -->
+        <div class="flex items-center gap-4">
+            <span class="text-sm text-stone-300">
+                Area pelanggan
+            </span>
+
+            <button class="btn btn-outline text-sm" data-logout>
+                Keluar
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-pad max-w-6xl mx-auto px-5 md:px-8 py-10">
+
+        <!-- Page Heading -->
+        <section class="mb-8">
+            <p class="brand text-xs font-bold tracking-widest">
+                CUSTOMER SPACE
+            </p>
+
+            <h1 class="display text-4xl font-bold mt-2">
+                Buat pesanan
+            </h1>
+
+            <p class="text-stone-500 mt-2">
+                Kamu bisa membuat reservasi barber, memesan café,
+                atau menggabungkan keduanya.
+            </p>
+        </section>
+
+        <!-- Notification -->
+        <div id="customer-message" class="notice mb-6" hidden></div>
+
+        <!-- Main Grid -->
+        <div class="grid lg:grid-cols-5 gap-6">
+
+            <!-- Booking and Café Order Form -->
+            <form id="booking-form" class="lg:col-span-3 panel p-6 space-y-5">
+
+                <!-- Section 01: Barber Reservation -->
+                <section>
+                    <h2 class="display text-2xl font-bold">
+                        01. Reservasi barber
+                    </h2>
+
+                    <p class="text-sm text-stone-500 mt-1">
+                        Bagian ini boleh dikosongkan jika hanya ingin
+                        memesan café.
+                    </p>
+                </section>
+
+                <!-- Service Selection -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2" for="service-id">
+                        Layanan
+                    </label>
+
+                    <select id="service-id" class="field">
+                        <option value="">
+                            Memuat layanan…
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Barber Selection -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2" for="barber-id">
+                        Barber
+                    </label>
+
+                    <select id="barber-id" class="field">
+                        <option value="">
+                            Pilih barber
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Booking Date and Time -->
+                <div class="grid sm:grid-cols-2 gap-4">
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" for="booking-date">
+                            Tanggal
+                        </label>
+
+                        <input class="field" id="booking-date" type="date">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" for="booking-time">
+                            Jam mulai
+                        </label>
+
+                        <input class="field" id="booking-time" type="time" step="60">
+                    </div>
+
+                </div>
+
+                <!-- Booking Notes -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2" for="booking-note">
+                        Catatan untuk barber
+                    </label>
+
+                    <textarea class="field" id="booking-note" rows="2"
+                        placeholder="Contoh: ingin model taper"></textarea>
+                </div>
+
+                <hr>
+
+                <!-- Section 02: Café Menu -->
+                <section>
+                    <h2 class="display text-2xl font-bold">
+                        02. Menu café
+                    </h2>
+
+                    <p class="text-sm text-stone-500 mt-1">
+                        Pilih produk dan jumlah yang diinginkan.
+                    </p>
+                </section>
+
+                <!-- Product List -->
+                <div id="products" class="grid sm:grid-cols-2 gap-3">
+                    <p class="text-stone-500">
+                        Memuat produk…
+                    </p>
+                </div>
+
+                <!-- Submit Order -->
+                <button class="btn btn-dark w-full" type="submit">
+                    Buat Pesanan
+                </button>
+
+                <!-- Payment Information -->
+                <p class="text-xs text-stone-500">
+                    Pesanan dibuat dengan status menunggu pembayaran.
+                    Konfirmasi pembayaran dilakukan admin sesuai alur
+                    backend saat ini.
+                </p>
+
+            </form>
+
+            <!-- Order History -->
+            <aside class="lg:col-span-2">
+
+                <section class="panel p-6">
+
+                    <h2 class="display text-2xl font-bold">
+                        Riwayat pesanan
+                    </h2>
+
+                    <p class="text-sm text-stone-500 mt-1 mb-5">
+                        Status terbaru dari server.
+                    </p>
+
+                    <div id="orders-list" class="space-y-4">
+                        <p class="text-stone-500">
+                            Memuat pesanan…
+                        </p>
+                    </div>
+
+                </section>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

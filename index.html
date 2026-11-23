@@ -1,6 +1,235 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Barber & Brew — Potong Rambut Sambil Ngopi</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="assets/css/style.css"></head><body><nav class="bg-stone-950 text-white px-6 md:px-12 py-5 flex items-center justify-between sticky top-0 z-20"><a href="index.html" class="display text-2xl font-black">Barber<span class="brand">&amp;Brew</span></a><div class="desktop-nav flex gap-7 text-sm"><a class="navlink" href="#layanan">Layanan</a><a class="navlink" href="#konsep">Konsep</a><a class="navlink" href="#kontak">Kontak</a></div><div class="flex gap-2"><a href="login.html" class="btn btn-outline text-sm">Masuk</a><a href="login.html?daftar=1" class="btn btn-gold text-sm">Daftar</a></div></nav>
-<header class="bg-stone-950 text-white page-pad px-8 md:px-16 py-20 md:py-28"><div class="hero-grid max-w-6xl mx-auto grid grid-cols-2 gap-14 items-center"><div><span class="text-amber-400 text-xs font-bold tracking-[.2em]">BARBERSHOP & CAFÉ</span><h1 class="display text-5xl md:text-7xl font-black leading-tight mt-5">Potong Rambut<br><span class="text-amber-400">Sambil Ngopi.</span></h1><p class="text-stone-300 text-lg leading-relaxed mt-6 max-w-xl">Atur reservasi barber dan pesan menu café dalam satu tempat. Pilih layanan, tentukan jadwal, lalu nikmati pengalaman Barber &amp; Brew.</p><div class="flex flex-wrap gap-3 mt-8"><a href="login.html?daftar=1" class="btn btn-gold">Mulai Reservasi</a><a href="#layanan" class="btn border border-white/30 text-white">Jelajahi Layanan</a></div></div><div class="rounded-3xl min-h-72 md:min-h-96 bg-gradient-to-br from-amber-500 to-amber-900 flex items-center justify-center text-9xl shadow-2xl">💈</div></div></header>
-<section id="layanan" class="page-pad px-8 md:px-16 py-20"><div class="max-w-6xl mx-auto"><p class="brand font-bold tracking-widest text-xs">LAYANAN KAMI</p><div class="flex flex-wrap justify-between items-end gap-4 mb-8"><h2 class="display text-4xl font-bold">Temukan layananmu</h2><a href="login.html?daftar=1" class="text-sm font-bold underline">Pesan sekarang →</a></div><div id="home-services" class="grid md:grid-cols-3 gap-5"><p class="text-stone-500">Memuat layanan…</p></div></div></section>
-<section id="konsep" class="bg-stone-900 text-white page-pad px-8 md:px-16 py-20"><div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"><div class="text-8xl text-center">☕</div><div><p class="text-amber-400 text-xs font-bold tracking-widest">BARBER MEETS BREW</p><h2 class="display text-4xl font-bold mt-3">Satu kunjungan, dua pengalaman.</h2><p class="text-stone-300 mt-5 leading-relaxed">Pilih layanan barbershop dan tambahkan produk café ke pesananmu. Katalog serta ketersediaan produk ditampilkan berdasarkan data dari sistem.</p><a href="login.html?daftar=1" class="btn btn-gold mt-7">Buat Pesanan</a></div></div></section>
-<footer id="kontak" class="bg-stone-950 text-stone-400 px-8 md:px-16 py-10"><div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-6"><div><p class="display text-white text-2xl font-bold">Barber<span class="brand">&amp;Brew</span></p><p class="text-sm mt-2">Barbershop dan café dalam satu pengalaman.</p></div><div class="text-sm"><p class="text-white font-semibold">Akses</p><p class="mt-2"><a href="login.html">Masuk / Daftar</a></p><p class="mt-1"><a href="login.html">Reservasi dan pesanan</a></p></div></div><p class="max-w-6xl mx-auto text-xs mt-10">© 2026 Barber &amp; Brew.</p></footer><script src="assets/js/app.js"></script></body></html>
+<!doctype html>
+<html lang="id">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Barber & Brew — Potong Rambut Sambil Ngopi</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="bg-stone-950 text-white px-6 md:px-12 py-5 flex items-center justify-between sticky top-0 z-20">
+
+        <!-- Logo -->
+        <a href="index.html" class="display text-2xl font-black">
+            Barber<span class="brand">&amp;Brew</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="desktop-nav flex gap-7 text-sm">
+            <a class="navlink" href="#layanan">
+                Layanan
+            </a>
+
+            <a class="navlink" href="#konsep">
+                Konsep
+            </a>
+
+            <a class="navlink" href="#kontak">
+                Kontak
+            </a>
+        </div>
+
+        <!-- Authentication Buttons -->
+        <div class="flex gap-2">
+            <a href="login.html" class="btn btn-outline text-sm">
+                Masuk
+            </a>
+
+            <a href="login.html?daftar=1" class="btn btn-gold text-sm">
+                Daftar
+            </a>
+        </div>
+
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-stone-950 text-white page-pad px-8 md:px-16 py-20 md:py-28">
+
+        <div class="hero-grid max-w-6xl mx-auto grid grid-cols-2 gap-14 items-center">
+
+            <!-- Hero Content -->
+            <div>
+
+                <span class="text-amber-400 text-xs font-bold tracking-[.2em]">
+                    BARBERSHOP & CAFÉ
+                </span>
+
+                <h1 class="display text-5xl md:text-7xl font-black leading-tight mt-5">
+                    Potong Rambut<br>
+                    <span class="text-amber-400">
+                        Sambil Ngopi.
+                    </span>
+                </h1>
+
+                <p class="text-stone-300 text-lg leading-relaxed mt-6 max-w-xl">
+                    Atur reservasi barber dan pesan menu café dalam satu
+                    tempat. Pilih layanan, tentukan jadwal, lalu nikmati
+                    pengalaman Barber &amp; Brew.
+                </p>
+
+                <!-- Hero Buttons -->
+                <div class="flex flex-wrap gap-3 mt-8">
+
+                    <a href="login.html?daftar=1" class="btn btn-gold">
+                        Mulai Reservasi
+                    </a>
+
+                    <a href="#layanan" class="btn border border-white/30 text-white">
+                        Jelajahi Layanan
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Hero Illustration -->
+            <div
+                class="rounded-3xl min-h-72 md:min-h-96 bg-gradient-to-br from-amber-500 to-amber-900 flex items-center justify-center text-9xl shadow-2xl">
+                💈
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- Services Section -->
+    <section id="layanan" class="page-pad px-8 md:px-16 py-20">
+
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Section Heading -->
+            <p class="brand font-bold tracking-widest text-xs">
+                LAYANAN KAMI
+            </p>
+
+            <div class="flex flex-wrap justify-between items-end gap-4 mb-8">
+
+                <h2 class="display text-4xl font-bold">
+                    Temukan layananmu
+                </h2>
+
+                <a href="login.html?daftar=1" class="text-sm font-bold underline">
+                    Pesan sekarang →
+                </a>
+
+            </div>
+
+            <!-- Dynamic Services -->
+            <div id="home-services" class="grid md:grid-cols-3 gap-5">
+                <p class="text-stone-500">
+                    Memuat layanan…
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Concept Section -->
+    <section id="konsep" class="bg-stone-900 text-white page-pad px-8 md:px-16 py-20">
+
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+            <!-- Concept Illustration -->
+            <div class="text-8xl text-center">
+                ☕
+            </div>
+
+            <!-- Concept Content -->
+            <div>
+
+                <p class="text-amber-400 text-xs font-bold tracking-widest">
+                    BARBER MEETS BREW
+                </p>
+
+                <h2 class="display text-4xl font-bold mt-3">
+                    Satu kunjungan, dua pengalaman.
+                </h2>
+
+                <p class="text-stone-300 mt-5 leading-relaxed">
+                    Pilih layanan barbershop dan tambahkan produk café
+                    ke pesananmu. Katalog serta ketersediaan produk
+                    ditampilkan berdasarkan data dari sistem.
+                </p>
+
+                <a href="login.html?daftar=1" class="btn btn-gold mt-7">
+                    Buat Pesanan
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak" class="bg-stone-950 text-stone-400 px-8 md:px-16 py-10">
+
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-6">
+
+            <!-- Brand Information -->
+            <div>
+
+                <p class="display text-white text-2xl font-bold">
+                    Barber<span class="brand">&amp;Brew</span>
+                </p>
+
+                <p class="text-sm mt-2">
+                    Barbershop dan café dalam satu pengalaman.
+                </p>
+
+            </div>
+
+            <!-- Footer Navigation -->
+            <div class="text-sm">
+
+                <p class="text-white font-semibold">
+                    Akses
+                </p>
+
+                <p class="mt-2">
+                    <a href="login.html">
+                        Masuk / Daftar
+                    </a>
+                </p>
+
+                <p class="mt-1">
+                    <a href="login.html">
+                        Reservasi dan pesanan
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <p class="max-w-6xl mx-auto text-xs mt-10">
+            © 2026 Barber &amp; Brew.
+        </p>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
